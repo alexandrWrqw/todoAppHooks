@@ -12,10 +12,17 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/**/*.js",
+    "lint:fix": "eslint ./src/**/*.js --fix --color",
+    "format": "prettier --write src/**/*.js",
+    "pre-commit": "lint-staged",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -33,6 +40,28 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/eslint-parser": "^7.24.1",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^6.1.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "npm run lint:fix",
+      "npm run format",
+      "git add"
     ]
   }
 }
