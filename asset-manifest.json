@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/todoAppHooks/static/css/main.31d6cfe0.css",
-    "main.js": "/todoAppHooks/static/js/main.03de3c67.js",
+    "main.css": "/todoAppHooks/static/css/main.1e147e72.css",
+    "main.js": "/todoAppHooks/static/js/main.0f692a3b.js",
     "index.html": "/todoAppHooks/index.html",
-    "main.03de3c67.js.map": "/todoAppHooks/static/js/main.03de3c67.js.map"
+    "main.1e147e72.css.map": "/todoAppHooks/static/css/main.1e147e72.css.map",
+    "main.0f692a3b.js.map": "/todoAppHooks/static/js/main.0f692a3b.js.map"
   },
   "entrypoints": [
-    "static/css/main.31d6cfe0.css",
-    "static/js/main.03de3c67.js"
+    "static/css/main.1e147e72.css",
+    "static/js/main.0f692a3b.js"
   ]
 }
