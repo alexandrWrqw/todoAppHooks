@@ -15,7 +15,14 @@
   },
   "plugins": ["react"],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["task"] }
+    ], // edit task description
+    "react/forbid-prop-types": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "no-plusplus": "off"
   },
   "settings": {
     "react": {
