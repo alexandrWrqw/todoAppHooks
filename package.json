@@ -1,7 +1,6 @@
 {
   "name": "todo-app-hooks",
   "version": "0.1.0",
-  "homepage": "https://alexandrWrqw.github.io/todoAppHooks",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
