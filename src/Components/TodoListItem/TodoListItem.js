@@ -1,10 +1,23 @@
+import './TodoListItem.css';
+
 import { useState } from 'react';
+
 import PropTypes from 'prop-types';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 import EditingTask from '../EditingTask/EditingTask';
+import TaskTimer from '../TaskTimer/TaskTimer';
 
-function TodoListItem({ task, editTask, toggleCompleteTask, deleteTask }) {
+function TodoListItem({
+  task,
+  editTask,
+  toggleCompleteTask,
+  deleteTask,
+  saveTimer,
+  hasTimer,
+  getTimer,
+  deleteTimer,
+}) {
   const [editing, setEditing] = useState(false);
 
   function onCloseEditingMode() {
@@ -38,6 +51,13 @@ function TodoListItem({ task, editTask, toggleCompleteTask, deleteTask }) {
         />
         <label htmlFor={task.id}>
           <span className="title">{task.description}</span>
+          <TaskTimer
+            task={task}
+            saveTimer={saveTimer}
+            hasTimer={hasTimer}
+            getTimer={getTimer}
+            deleteTimer={deleteTimer}
+          />
           <span className="description">
             {`created ${formatDistanceToNow(task.createdTime, {
               addSuffix: true,
@@ -80,6 +100,10 @@ TodoListItem.propTypes = {
   deleteTask: PropTypes.func.isRequired,
   toggleCompleteTask: PropTypes.func.isRequired,
   editTask: PropTypes.func.isRequired,
+  saveTimer: PropTypes.func.isRequired,
+  hasTimer: PropTypes.func.isRequired,
+  getTimer: PropTypes.func.isRequired,
+  deleteTimer: PropTypes.func.isRequired,
 };
 
 TodoListItem.defaultProps = {

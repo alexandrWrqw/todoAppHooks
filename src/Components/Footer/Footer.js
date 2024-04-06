@@ -1,5 +1,7 @@
+import './Footer.css';
+
 import PropTypes from 'prop-types';
-import TasksFilter from '../FooterTasksFilter/FooterTasksFilter';
+import FooterTasksFilter from '../FooterTasksFilter/FooterTasksFilter';
 
 function Footer({
   notCompletedCount,
@@ -10,10 +12,10 @@ function Footer({
   return (
     <footer className="footer">
       <span className="todo-count">{notCompletedCount} items left</span>
-      <TasksFilter changeFilter={changeFilter} filter={filter} />
+      <FooterTasksFilter changeFilter={changeFilter} filter={filter} />
       <button
-        type="button"
         className="clear-completed"
+        type="button"
         onClick={() => deleteCompletedTasks()}
       >
         Clear completed

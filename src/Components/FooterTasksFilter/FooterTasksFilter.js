@@ -1,3 +1,5 @@
+import './FooterTasksFilter.css';
+
 import PropTypes from 'prop-types';
 
 function TasksFilter({ changeFilter, filter }) {
@@ -5,8 +7,8 @@ function TasksFilter({ changeFilter, filter }) {
     <ul className="filters">
       <li>
         <button
-          type="button"
           className={filter === 'all' ? 'selected' : null}
+          type="button"
           onClick={() => changeFilter('all')}
         >
           All
@@ -14,8 +16,8 @@ function TasksFilter({ changeFilter, filter }) {
       </li>
       <li>
         <button
-          type="button"
           className={filter === 'active' ? 'selected' : null}
+          type="button"
           onClick={() => changeFilter('active')}
         >
           Active
@@ -23,8 +25,8 @@ function TasksFilter({ changeFilter, filter }) {
       </li>
       <li>
         <button
-          type="button"
           className={filter === 'completed' ? 'selected' : null}
+          type="button"
           onClick={() => changeFilter('completed')}
         >
           Completed

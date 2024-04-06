@@ -1,3 +1,5 @@
+import './App.css';
+
 import { useState } from 'react';
 
 import Header from '../Header/Header';
@@ -7,18 +9,20 @@ import Footer from '../Footer/Footer';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('all');
+  const [timers, setTimers] = useState(new Map());
 
-  function createTask(description) {
+  function createTask(description, endTimer) {
     return {
       id: Date.now(),
       description,
+      endTimer,
       createdTime: new Date(),
       completed: false,
     };
   }
 
-  function addTask(description) {
-    setTasks([...tasks, createTask(description)]);
+  function addTask(description, endTimer) {
+    setTasks([...tasks, createTask(description, endTimer)]);
   }
 
   function deleteTask(id) {
@@ -77,17 +81,41 @@ function App() {
     });
   }
 
+  function saveTimer(id, timeData) {
+    setTimers(timers.set(id, timeData));
+  }
+
+  function hasTimer(id) {
+    return timers.has(id);
+  }
+
+  function getTimer(id) {
+    return timers.get(id);
+  }
+
+  function deleteTimer(id) {
+    timers.delete(id);
+  }
+
   const notCompletedCount = tasks.filter((task) => !task.completed).length;
 
   return (
     <section className="todoapp">
-      <Header addTask={(description) => addTask(description)} />
+      <Header
+        addTask={(description, secondsTimer) =>
+          addTask(description, secondsTimer)
+        }
+      />
       <section className="main">
         <TodoList
           tasks={filterTasks()}
           deleteTask={(id) => deleteTask(id)}
           toggleCompleteTask={(id) => toggleCompleteTask(id)}
           editTask={(id, value) => editTask(id, value)}
+          saveTimer={(id, timeData) => saveTimer(id, timeData)}
+          hasTimer={(id) => hasTimer(id)}
+          getTimer={(id) => getTimer(id)}
+          deleteTimer={(id) => deleteTimer(id)}
         />
         <Footer
           notCompletedCount={notCompletedCount}
